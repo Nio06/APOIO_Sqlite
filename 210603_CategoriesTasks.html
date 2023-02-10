@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+   <meta charset="utf-8">
+   <title>Prototype Outline</title>
+   <link rel="stylesheet" href="210603_All.css" />
+   <script defer src="rcsSelect.js"></script>
+   <script defer src="util.js"></script>
+   <script defer src="sc.js"></script>
+   <script defer src="210603_JS.js"></script>
+   <script defer src="Stopwatch.js"></script>
+
+</head>
+<body id="body">
+<header>
+     <img src = "ApoioLogo.png" alt="apoio">
+     <span style="float:right; margin-left: 2px;">&copy;</span><img style="float:right;" src="site-logo.png" alt="msidelogo">
+     <hr>
+     <div id="optionsBar" style="display: none;">
+       <button type="button" id="catButton" class="opBar" name="button"> Categories </button>
+       <button type="button" id="recvButton" class="opBar" name="button"> Receive </button>
+       <button type="button" id="shareButton" class="opBar" name="button"> Share </button>
+       <button type="button" id="accChPwd" class="opBar" name="button"> Change Password </button>
+       <button type="button" id="accLogout" class="opBar" name="button"> Logout </button>
+       <hr>
+     </div>
+</header>
+
+<main>
+
+  <h1 id="welcome" style="background-color: #EE9EA1; display: none;"> Welcome </h1>
+
+  <div id="login" style="display: block;">
+    <button type="button" id="signupLogin" style="width: 50px; height: 20px; font-size: .7em; padding-left: 3px; padding-top: 4px;padding-right: 1px;"> Sign up</button>
+    <h1> Login </h1><br><br>
+
+    <label for="usernameLogin" style="font-size:1.2em; font-family: American Typewriter, Copperplate, monospace;">Username</label><br>
+    <input id="usernameLogin" name="usernameLogin" placeholder="Email" type="text"> <br> <br>
+    <label for="passwordLogin" style="font-size:1.2em; font-family: American Typewriter, Copperplate, monospace;">Password</label><br>
+    <input id="passwordLogin" name="passwordLogin" placeholder="Password" type="password"><br>
+    <input type="checkbox" id="loginShowPassword" name="loginShowPassword" style="width:20px;">
+    <label for="loginShowPassword">Show Password</label><br>
+    <span id="incpwd"></span><br>
+    <button type="submit" id="submitLogin"> Submit</button> <span id="forgotPwLogin"> Forgot Password </span>
+  </div>
+
+  <div id="categories" style="display: none;">
+    <h1> CATEGORIES </h1><br>
+    <button type="button" id="addButton" name="button">ADD</button>
+    <div class="dropdown">
+      <button type="button" class="dropbtn" id="dropbtnCat" name="button">DELETE</button>
+      <div class="dropdown-content" id="dropCat">
+      </div>
+    </div>
+    <button type="button" name="button">IMPORT/EXPORT</button>
+    <br><br><br>
+    <div>
+      <section id="filterSelect">
+          <label for="filter">Sort:</label>
+          <select style="width: 150px" id="filter" name="filter">
+              <option selected="">Select Filter</option>
+              <option value = "1">Name Ascending</option>
+              <option value = "2">Name Descending</option>
+          </select>
+      </section>
+    </div>
+
+    <br>
+
+    <div>
+      <table id="categoryTable">
+        <tr class = "B" id = "tableCatHeader">
+           <th> NAME </th>
+        </tr>
+      </table>
+    </div>
+    <br><br>
+  </div>
+
+  <div id="tasks" style="display: none;">
+    <h1> CATEGORY: </h1><h1 id="taskCatTitle"></h1><br>
+    <button type="button" name="button" id="taskAdd">ADD</button>
+    <div class="dropdown">
+      <button type="button" class="dropbtn" id="dropbtnTask" name="button">DELETE</button>
+      <div class="dropdown-content" id="dropTask">
+      </div>
+    </div>
+    <button type="button" name="button">PAUSED</button>
+    <button type="button" name="button">COMPLETED</button>
+    <button type="button" name="button">ALL</button>
+    <br><br>
+
+    <div>
+      <table id="taskTable">
+        <tr class = "B" id="taskTableHeader">
+           <th> NAME </th> <th> DATE </th> <th> STATUS </th>
+        </tr>
+
+      </table>
+    </div>
+    <br><br>
+  </div>
+
+  <div id="timerpage" style="display: none;">
+    <table border="1" align= "center" width="200px">
+      <tr>
+        <td>
+          <div class= "center">Category: <span style="font-size: 1.2em; font-family: American Typewriter, Copperplate, monospace;" id="stopwatchCat"></span></div><br>
+          <div class= "center">Task: <span style="font-size: 1.2em; font-family: American Typewriter, Copperplate, monospace;" id="stopwatchTask"></span></div><br>
+          <div class= "center">Predicted Time: <span style="font-size: 1.2em; font-family: American Typewriter, Copperplate, monospace;" id="stopwatchPTime"></span></div><br>
+        </td>
+      </tr>
+    </table>
+    <div class="wrapper">
+      <div id="stopwatch">00:00:00:00</div>
+      <div class= "start"><button  id="start" type= "button">Start</button></div>
+      <div class= "pause"><button  id="pause" style="display: none;" type= "button">Pause</button></div>
+      <div class= "finish"><button id="timesubmit" type= "button">Finish</button></div>
+      <div><button  id="taskStartedTime" type= "button">Return</button></div>
+    </div>
+  </div>
+
+  <div id="taskentry" style="display: none;">
+    <h1>Task Creator</h1>
+    <h2>Enter Data Below!</h2>
+
+    <form id="join-us">
+      <div class="fields">
+       <span>
+         <input placeholder="Name of Task" id="taskNameInput" type="text" />
+      </span><br><br>
+      <input placeholder="Category" id="taskCatInput" type="text" /><span id="taskCatInputSet"></span><br><br>
+      <input type="date" id="taskDateInput" min="2021-01-01" max="2030-12-31"><br><br>
+       <span>
+         Predicted Time:<br>
+         <input id="predHoursInp" type="number" placeholder=" Predicted Hours" min="0"
+         onKeyUp="if(this.value<0){this.value='0';}" class= "center"><br>
+         <input id="predMinsInp" type="number" placeholder=" Predicted Minutes" min ="0" max ="59"
+         onKeyUp="if(this.value>59){this.value='59';}else if(this.value<0){this.value='0';}" class= "center"><br>
+      </span>
+      <button id="showPredicted" type= "button" style="width: 50px; height: 20px; font-size: .7em; padding-left: 3px; padding-top: 4px;padding-right: 1px;">Hint</button> <span id="predSpan"></span>
+      <br>
+     <br />
+      </div>
+      <div class="submit">
+        <button id="tasksubmit" type= "button">Finish</button><br><br>
+        <button id="taskcancel" type= "button">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+<!--********************** RANDY'S SCREENS BEGIN ***********************-->
+
+<!----- Main Screen for Recieved items
+------------------------------->
+  <div id="recvScr" style="display: none;">
+    <h1> EXPORTED CATEGORIES </h1><br>
+    <button type="button" id="toAddExport" name="button">ADD</button>
+		<br><br><br><br><br>
+    <div>
+      <table id="exportTable">
+        <tr class = "tableHead" id = "exportHeader">
+           <th> EXPORTED CATEGORIES </th>
+        </tr>
+        <tr class="A"><td>Item1: <span class="actout"> View Stats </span></td></tr>
+      </table>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!----- Beginning test -------------------------
+<div id="testdiv" class="itemHead">
+Category
+</div>
+
+--- Ending test ------------------------------->
+
+    <br><br>
+  </div>
+
+<!----- Screen for sharing
+------------------------------------->
+<div id="shareScr" style="display: none;" >
+  <h1> Share Categories </h1>
+  <br><br><br><br>
+  <div id="sharetestView">
+  </div>
+  <!-----------------------------------
+  <div>
+    <label for="newExpName" style="font-size:1.2em; font-family: American Typewriter, Copperplate, monospace;">Name of the New Export Category</label>
+    <br>
+    <input id="newExpName" type="text" size="55" maxlength="60">
+  </div>
+  <br><br><br>
+  <div>
+  <label for="exportList" style="font-size:1.2em; font-family: American Typewriter, Copperplate, monospace;">User names of recipients (one per line):</label>
+  <br><br>
+  <textarea id="exportList" cols="60" rows="25"></textarea>
+	</div>
+	<br><br><br>
+	<div>
+		<button type="button" id="createNewExpCat" name="button">Create</button>
+  </div>
+  ---------------------------->
+</div>
+
+
+<!--********************** RANDY'S SCREENS END ***********************-->
+</main>
+</body>
+</html>

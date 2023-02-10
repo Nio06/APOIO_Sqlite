@@ -1,0 +1,14 @@
+ADDING EXPORTED CATEGORY:
+
+    BROWSER SENDS:
+   	 MESSAGE: "Msideapp#1" + "\x1F" + username + "\x1F" + newExpCatName + "\x1F" + "addShareCat" + "\x1F" + token + "\x1F" + (all usernames split up by our characters)
+   	 FROM FUNCTION: showCatTable (categories tab clicked)
+
+    SERVER REPLIES
+   	 SUCCESS MESSAGE: a Json string, structured as
+   				 type Category struct {
+   							 Catname string
+   				 }
+   	 FAILURE MESSAGE: RETURN "2" if the name is already in use as an export name
+												by this user.
+

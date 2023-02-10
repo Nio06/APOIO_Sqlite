@@ -1,0 +1,12 @@
+Screens to hide or show:
+
+"welcome"
+"categories"
+"tasks"
+"timerpage"
+"taskentry"
+"expScr"
+"impScr"
+
+***********************************************************
+

@@ -1,0 +1,20 @@
+APOIO FINAL TASKS
+
+Import JS
+Import Server
+Export JS
+Export Server
+Pending JS
+Pending Server
+Correct any current flaws
+
+Modify Create an account to check that userid already in (pre-populate)
+Go or C++ routine for pre-populating users
+
+Deep Testing of the system, correcting flaws found
+
+Student presentation, including demo
+
+
+Also a presentation AUG 17, 1:00 - 1:50 (put it on your calendar)
+	-- Rena will demo the yes/no grade app create by her software dev group
