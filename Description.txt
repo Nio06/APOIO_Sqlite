@@ -1,0 +1,5 @@
+Es gibt 5 JavaScriptdateien. 210603_JS.js ist die Hauptdatei, welche die meisten und wichtigsten Funktionen hat.
+Die Datei ist vor allem auch für die Weiterleitung von Information an Golang verantwortlich. Stopwatch.js ist ausschließlich
+für die Funktionalität der Stopuhr da. Die anderen drei Dateien sind Hilfsdateien für die zuvor genannten Programme oder Datenverarbeitung.
+appServer.go ist das Golangprogramm, welche mit der Sqlitedatenbank kommuniziert mit Hilfe eines Servers. go.mod und go.sum gehören auch dazu.
+Usersdb.db ist die Datenbankdatei selbst und 210603_CatergoriesTasks.html ist die HTML-Datei. Der Rest sind größtenteils Bilddateien, Notizen, und CSS.
